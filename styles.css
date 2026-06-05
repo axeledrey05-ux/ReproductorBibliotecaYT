@@ -1,0 +1,250 @@
+:root {
+    --bg-color: #121212;
+    --card-color: #1e1e1e;
+    --accent-color: #ff0055;
+    --text-color: #ffffff;
+    --muted-text: #b3b3b3;
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: var(--bg-color); 
+    color: var(--text-color); 
+    padding: 30px;
+    margin: 0;
+}
+
+.search-box {
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background: var(--card-color);
+    color: white;
+    width: 300px;
+    margin-right: 10px;
+    outline: none;
+    border: 1px solid #333;
+}
+
+button.btn-search {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+button.btn-search:hover {
+    transform: scale(1.05);
+}
+
+.banda-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 25px; 
+    margin-bottom: 40px; 
+    background: linear-gradient(135deg, #2c001e, #121212);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.banda-foto { 
+    width: 130px; 
+    height: 130px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.grid-albumes { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 25px; 
+}
+
+.card-album { 
+    background: var(--card-color); 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: block;
+}
+
+.foto-album { 
+    width: 100%; 
+    aspect-ratio: 1;
+    border-radius: 8px; 
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.album-info h3 { margin: 5px 0; font-size: 18px; }
+.album-info p { color: var(--muted-text); font-size: 14px; margin: 5px 0 15px 0; }
+
+.btn-desplegar {
+    width: 100%;
+    background: #2a2a2a;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.btn-desplegar:hover { background: #3a3a3a; }
+
+.lista-canciones {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 5px;
+}
+
+.lista-canciones.activo {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+ul { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+
+
+li { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 8px 0; 
+    border-bottom: 1px solid #2a2a2a; 
+}
+
+.cancion-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 75%;
+}
+
+.btn-play {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: transform 0.1s;
+}
+
+.btn-play:hover { transform: scale(1.1); }
+.cancion-nombre { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cancion-duracion { color: var(--muted-text); font-size: 13px; }
+
+.reproductor-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #181818;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.8);
+    display: none;
+    z-index: 1000;
+    border: 1px solid #282828;
+    width: 300px;
+}
+
+.reproductor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#reproductorTitulo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 85%;
+}
+
+.btn-cerrar-player {
+    background: none;
+    border: none;
+    color: var(--muted-text);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-cerrar-player:hover { color: white; }
+
+/* Ajustes para el contenedor interno del reproductor */
+.pista-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 80%; /* Deja espacio para el botón de cerrar */
+}
+
+#reproductorPortada {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.pista-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita que nombres largos deformen el widget */
+}
+
+#reproductorTitulo {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#reproductorBanda {
+    font-size: 12px;
+    color: var(--muted-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
+/* Modificamos ligeramente la cabecera original para alinear todo al centro */
+.reproductor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Discografías</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="search-box">
+        <input type="text" id="busqueda" value="Daft Punk" placeholder="Escribe el nombre de una banda...">
+        <button class="btn-search" onclick="buscarBanda()">Buscar Discografía</button>
+    </div>
+
+    <div id="resultado"></div>
+
+    <div id="reproductorWidget" class="reproductor-flotante">
+        <div class="reproductor-header">
+            <div class="pista-contenedor">
+                <img id="reproductorPortada" src="https://via.placeholder.com/50" alt="Portada">
+                <div class="pista-info">
+                    <span id="reproductorTitulo">Sin reproducir</span>
+                    <span id="reproductorBanda">Artista</span>
+                </div>
+            </div>
+            <button class="btn-cerrar-player" onclick="cerrarReproductor()">✕</button>
+        </div>
+        <audio id="audioPlayer" controls autoplay style="width: 100%;"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
